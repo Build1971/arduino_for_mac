@@ -24,5 +24,15 @@ public:
 void delay(uint32_t);
 uint32_t millis();
 uint32_t micros();
+const uint8_t INPUT = 0;
+const uint8_t INPUT_PULLUP = 1;
+const uint8_t OUTPUT = 2;
+void pinMode(uint8_t pinNr, uint8_t pinMode = 0);
+uint8_t digitalRead(uint8_t pinNr);
+const uint8_t HIGH = 1;
+const uint8_t LOW = 0;
+void digitalWrite(uint8_t pinNr, int8_t state);
+uint16_t analogRead(uint8_t pinNr);
+void analogWrite(uint8_t pinNr, uint8_t pwm);
 
 #endif

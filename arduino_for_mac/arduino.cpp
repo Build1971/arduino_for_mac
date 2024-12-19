@@ -53,3 +53,24 @@ void delay(uint32_t myDelay) {
         ;
     }
 }
+
+void pinMode(uint8_t pinNr, uint8_t pinMode){
+    
+};
+
+uint8_t digitalRead(uint8_t pinNr){
+    return HIGH;
+};
+
+uint16_t analogRead(uint8_t pinNr){
+    return 1023;
+};
+
+
+void digitalWrite(uint8_t pinNr, int8_t state){
+    
+};
+
+void analogWrite(uint8_t pinNr, uint8_t pwm){
+    
+}

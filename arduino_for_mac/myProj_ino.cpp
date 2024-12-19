@@ -8,9 +8,9 @@
 SerialClass Serial;
 
 void setup() {
+    pinMode(1, INPUT_PULLUP);
     Serial.begin(9600);
     Serial.println("Hello world!");
-    
 }
 
 int loopCounter = 0;
