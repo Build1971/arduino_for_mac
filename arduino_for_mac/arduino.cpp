@@ -87,6 +87,8 @@ void analogWrite(uint8_t pinNr, uint8_t pwm){
 }
 
 void printPinState() {
+    std::cout << "Pinstate\n";
+    std::cout << "Nr,mode,state,pwm\n";
     for (uint8_t pinNr=0; pinNr<numOfPins; pinNr++) {
         std::cout << (int)pinNr << ", ";
         std::cout << (int)pinState[pinNr].m_mode << ", ";
