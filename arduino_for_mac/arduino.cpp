@@ -18,6 +18,15 @@ void SerialClass::println(int myInt) {
     std::cout << myInt << '\n';
 }
 
+void SerialClass::print(uint32_t myInt) {
+    std::cout << (int)myInt;
+}
+
+void SerialClass::println(uint32_t myInt) {
+    std::cout << myInt << '\n';
+}
+
+
 void SerialClass::println(uint8_t myInt) {
     std::cout << (int)myInt << '\n';;
 }
@@ -54,23 +63,34 @@ void delay(uint32_t myDelay) {
     }
 }
 
+PinState pinState[numOfPins];
+
 void pinMode(uint8_t pinNr, uint8_t pinMode){
-    
-};
+    pinState[pinNr].m_mode = pinMode;
+}
 
 uint8_t digitalRead(uint8_t pinNr){
     return HIGH;
-};
+}
 
 uint16_t analogRead(uint8_t pinNr){
     return 1023;
-};
+}
 
 
 void digitalWrite(uint8_t pinNr, int8_t state){
-    
-};
+    pinState[pinNr].m_state = state;
+}
 
 void analogWrite(uint8_t pinNr, uint8_t pwm){
-    
+    pinState[pinNr].m_pwm = pwm;
+}
+
+void printPinState() {
+    for (uint8_t pinNr=0; pinNr<numOfPins; pinNr++) {
+        std::cout << (int)pinNr << ", ";
+        std::cout << (int)pinState[pinNr].m_mode << ", ";
+        std::cout << (int)pinState[pinNr].m_state << ", ";
+        std::cout << (int)pinState[pinNr].m_pwm << '\n';
+    }
 }
