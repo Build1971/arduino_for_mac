@@ -8,6 +8,5 @@
 #ifndef MYPROJ_INO
 #define MYPROJ_INO
 
-void setup();
-void loop();
+
 #endif

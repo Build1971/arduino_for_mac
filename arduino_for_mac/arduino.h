@@ -8,6 +8,9 @@
 #ifndef ARDUINO_H
 #define ARDUINO_H
 
+void setup();
+void loop();
+
 class SerialClass {
     int m_baudRate;
 public:

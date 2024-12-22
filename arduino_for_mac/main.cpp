@@ -6,7 +6,7 @@
 //
 #include <time.h>
 #include <iostream>
-#include "myProj_ino.h"
+#include "arduino.h"
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
     int loopCounter = 0;
