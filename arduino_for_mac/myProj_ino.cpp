@@ -14,6 +14,7 @@ void setup() {
     pinMode(1, Rx);
     pinMode(2, INPUT_PULLUP);
     pinMode(3, OUTPUT);
+    randomSeed(2);
 }
 
 int loopCounter = 0;
@@ -25,6 +26,8 @@ void loop() {
     digitalWrite(1, HIGH);
     Serial.println(millis());
     Serial.println(micros());
+    Serial.println(random(20));
     printPinState();
+
     loopCounter++;
 }

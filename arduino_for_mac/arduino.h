@@ -41,10 +41,11 @@ struct PinState {
 };
 const uint8_t numOfPins = 4;
 
-
 void delay(uint32_t);
 uint32_t millis();
 uint32_t micros();
+void randomSeed(uint32_t seed);
+uint32_t random(uint32_t max);
 void pinMode(uint8_t pinNr, uint8_t pinMode = 0);
 uint8_t digitalRead(uint8_t pinNr);
 void digitalWrite(uint8_t pinNr, int8_t state);

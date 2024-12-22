@@ -63,6 +63,14 @@ void delay(uint32_t myDelay) {
     }
 }
 
+void randomSeed(uint32_t seed) {
+    srandom((uint)time(NULL)); //make random yield real random...
+}
+
+uint32_t random(uint32_t max) {
+    return random() * max / RAND_MAX;
+}
+
 PinState pinState[numOfPins];
 
 void pinMode(uint8_t pinNr, uint8_t pinMode){
