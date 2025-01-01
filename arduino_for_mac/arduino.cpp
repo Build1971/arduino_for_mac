@@ -57,7 +57,6 @@ uint32_t millis() {
 
 void delay(uint32_t myDelay) {
     uint32_t m_start = millis();
-    //std::cout << m_start << '\n';
     while (millis()-m_start < myDelay) {
         ;
     }
