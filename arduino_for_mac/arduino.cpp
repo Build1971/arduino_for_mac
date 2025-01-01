@@ -19,7 +19,7 @@ void SerialClass::println(int myInt) {
 }
 
 void SerialClass::print(uint32_t myInt) {
-    std::cout << (int)myInt;
+    std::cout << myInt;
 }
 
 void SerialClass::println(uint32_t myInt) {
@@ -67,7 +67,7 @@ void randomSeed(uint32_t seed) {
 }
 
 uint32_t random(uint32_t max) {
-    return random() * max / RAND_MAX;
+    return (uint32_t)random() * max / RAND_MAX;
 }
 
 PinState pinState[numOfPins];
@@ -83,7 +83,6 @@ uint8_t digitalRead(uint8_t pinNr){
 uint16_t analogRead(uint8_t pinNr){
     return 1023;
 }
-
 
 void digitalWrite(uint8_t pinNr, int8_t state){
     pinState[pinNr].m_state = state;
