@@ -5,29 +5,36 @@
 //  Created by Koen Meesters on 19/12/2024.
 //
 #include "arduino.h"
+#define _MAC //toggle this off if you copy the code to an arduino environment
+#ifdef _MAC
 SerialClass Serial;
+#endif
 
 void setup() {
+    #ifdef _MAC
+    init();
+    #endif
     Serial.begin(9600);
     Serial.println("Hello world!");
-    pinMode(0, Tx);
-    pinMode(1, Rx);
+    Serial.println(__FILE_NAME__);
+    Serial.println("Compiled on:");
+    Serial.print(__DATE__);
+    Serial.print(" ");
+    Serial.println(__TIME__);
+
     pinMode(2, INPUT_PULLUP);
     pinMode(3, OUTPUT);
-    randomSeed(2);
+    pinMode(A0, INPUT);
+    randomSeed(analogRead(A0));
 }
 
-int loopCounter = 0;
 void loop() {
-    Serial.println(loopCounter);
     delay(1000);
-    digitalRead(2);
     analogWrite(3, 128);
     digitalWrite(1, HIGH);
+    Serial.println(digitalRead(2));
     Serial.println(millis());
     Serial.println(micros());
     Serial.println(random(20));
     printPinState();
-
-    loopCounter++;
 }

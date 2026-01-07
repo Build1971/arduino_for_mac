@@ -10,7 +10,7 @@
 
 void setup();
 void loop();
-
+const uint16_t max_loops = 10;
 class SerialClass {
     int m_baudRate;
 public:
@@ -29,6 +29,8 @@ public:
 
 const uint8_t Tx = 0;
 const uint8_t Rx = 1;
+const uint8_t A0 = 12;
+const uint8_t numOfPins = 20;
 const uint8_t INPUT = 2;
 const uint8_t INPUT_PULLUP = 3;
 const uint8_t OUTPUT = 4;
@@ -37,10 +39,10 @@ const uint8_t LOW = 0;
 struct PinState {
     uint8_t m_mode = INPUT;
     uint8_t m_state = LOW;
+    uint8_t m_analog = 127;
     uint8_t m_pwm = 0;
 };
-const uint8_t numOfPins = 4;
-
+void init();
 void delay(uint32_t);
 uint32_t millis();
 uint32_t micros();
