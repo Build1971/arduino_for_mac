@@ -66,7 +66,7 @@ void randomSeed(uint32_t seed) {
 }
 
 uint32_t random(uint32_t max) {
-    return (uint32_t)random() * max / RAND_MAX;
+    return (uint32_t)rand() % max;
 }
 
 PinState pinState[numOfPins];

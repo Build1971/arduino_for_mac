@@ -11,9 +11,6 @@ SerialClass Serial;
 #endif
 
 void setup() {
-    #ifdef _MAC
-    init();
-    #endif
     Serial.begin(9600);
     Serial.println("Hello world!");
     Serial.println(__FILE_NAME__);
@@ -21,7 +18,6 @@ void setup() {
     Serial.print(__DATE__);
     Serial.print(" ");
     Serial.println(__TIME__);
-
     pinMode(2, INPUT_PULLUP);
     pinMode(3, OUTPUT);
     pinMode(A0, INPUT);
@@ -33,7 +29,10 @@ void loop() {
     analogWrite(3, 128);
     digitalWrite(1, HIGH);
     Serial.println(digitalRead(2));
+    Serial.println(analogRead(A0));
+    Serial.println("Millis: ");
     Serial.println(millis());
+    Serial.println("Micros: ");
     Serial.println(micros());
     Serial.println(random(20));
     printPinState();

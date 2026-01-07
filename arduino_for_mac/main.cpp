@@ -9,6 +9,7 @@
 #include "arduino.h"
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
+    init();
     setup();
     int loopCounter = 0;
     while (loopCounter<max_loops) {
