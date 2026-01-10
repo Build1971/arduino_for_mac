@@ -27,21 +27,30 @@ public:
     void println(const char* charPtr);
 };
 
-const uint8_t Tx = 0;
-const uint8_t Rx = 1;
-const uint8_t A0 = 12;
+const uint8_t Rx =  0;
+const uint8_t Tx =  1;
+const uint8_t A0 = 14;
+const uint8_t A1 = 15;
+const uint8_t A2 = 16;
+const uint8_t A3 = 17;
+const uint8_t A4 = 18;
+const uint8_t A5 = 19;
+const uint8_t pwmPins[] = {3, 5, 6, 9, 10, 11};
+const uint8_t analogPins[] = {A0, A1, A2, A3, A4, A5};
 const uint8_t numOfPins = 20;
-const uint8_t INPUT = 2;
+const uint8_t LOW =    0;
+const uint8_t HIGH =   1;
+const uint8_t INPUT =  2;
 const uint8_t INPUT_PULLUP = 3;
 const uint8_t OUTPUT = 4;
-const uint8_t HIGH = 1;
-const uint8_t LOW = 0;
+
 struct PinState {
     uint8_t m_mode = INPUT;
     uint8_t m_state = LOW;
     uint8_t m_analog = 127;
     uint8_t m_pwm = 0;
 };
+
 void init();
 void delay(uint32_t);
 uint32_t millis();

@@ -72,8 +72,8 @@ uint32_t random(uint32_t max) {
 PinState pinState[numOfPins];
 
 void init() {
-    pinMode(0, Tx);
-    pinMode(1, Rx);
+    pinMode(Tx, OUTPUT);
+    pinMode(Rx, INPUT);
     for (uint8_t i=2; i<numOfPins; i++) {
         pinMode(i, INPUT);
     }
@@ -92,7 +92,16 @@ uint8_t digitalRead(uint8_t pinNr){
 }
 
 uint16_t analogRead(uint8_t pinNr){
-    return pinState[pinNr].m_analog;
+    for (uint8_t i=0; i<6; i++) {
+        if (pinNr == analogPins[i]) {
+            return pinState[pinNr].m_analog;
+        }
+    }
+    std::cout << "analogRead() will not work as pin " << (uint16_t)pinNr << " is not a pwm pin";
+    while (true) {
+        ;
+    }
+    return 255;
 }
 
 void digitalWrite(uint8_t pinNr, int8_t state){
@@ -100,7 +109,16 @@ void digitalWrite(uint8_t pinNr, int8_t state){
 }
 
 void analogWrite(uint8_t pinNr, uint8_t pwm){
-    pinState[pinNr].m_pwm = pwm;
+    for (uint8_t i=0; i<6; i++) {
+        if (pinNr == pwmPins[i]) {
+            pinState[pinNr].m_pwm = pwm;
+            return;
+        }
+    }
+    std::cout << "analogWrite() will not work as pin " << (uint16_t)pinNr << " is not a pwm pin";
+    while (true) {
+        ;
+    }
 }
 
 void printPinState() {
