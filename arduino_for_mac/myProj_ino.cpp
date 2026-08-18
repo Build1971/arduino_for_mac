@@ -12,7 +12,6 @@ SerialClass Serial;
 
 void setup() {
     Serial.begin(9600);
-    Serial.println("Hello world!");
     Serial.println(__FILE_NAME__);
     Serial.println("Compiled on:");
     Serial.print(__DATE__);
